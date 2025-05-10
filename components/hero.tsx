@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react"
 import { motion } from "framer-motion"
-import Spline from "@splinetool/react-spline/next"
+import Spline from "@splinetool/react-spline"
 
 export default function Hero() {
   const containerRef = useRef(null)
