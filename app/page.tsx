@@ -1,13 +1,13 @@
-import LoadingScreen from "@/components/loading-screen";
-import Navigation from "@/components/navigation";
-import About from "@/components/about";
-import Projects from "@/components/projects";
-import Skills from "@/components/skills";
-import Testimonials from "@/components/testimonials";
-import Contact from "@/components/contact";
-import Footer from "@/components/footer";
-import ScrollProgress from "@/components/scroll-progress";
-import Hero from "@/components/hero";
+import LoadingScreen from "@/components/loading-screen"
+import Navigation from "@/components/navigation"
+import ClientHeroWrapper from "@/components/client-hero-wrapper"
+import About from "@/components/about"
+import Projects from "@/components/projects"
+import Skills from "@/components/skills"
+import Testimonials from "@/components/testimonials"
+import Contact from "@/components/contact"
+import Footer from "@/components/footer"
+import ScrollProgress from "@/components/scroll-progress"
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
       <ScrollProgress />
       <Navigation />
       <main className="relative overflow-hidden">
-        <Hero />
+        <ClientHeroWrapper />
         <About />
         <Projects />
         <Skills />
@@ -25,5 +25,5 @@ export default function Home() {
         <Footer />
       </main>
     </>
-  );
+  )
 }

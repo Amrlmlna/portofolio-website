@@ -1,15 +1,15 @@
-"use client";
+"use client"
 
-import { useRef, useState } from "react";
-import { motion } from "framer-motion";
-import Spline from "@splinetool/react-spline";
+import { useRef, useState } from "react"
+import { motion } from "framer-motion"
+import Spline from "@splinetool/react-spline/next"
 
 export default function Hero() {
-  const containerRef = useRef(null);
-  const [isSplineLoaded, setIsSplineLoaded] = useState(false);
+  const containerRef = useRef(null)
+  const [isSplineLoaded, setIsSplineLoaded] = useState(false)
 
   function onSplineLoad() {
-    setIsSplineLoaded(true);
+    setIsSplineLoaded(true)
   }
 
   return (
@@ -60,9 +60,8 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.8 }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              scelerisque id nunc nec volutpat. Etiam pellentesque tristique
-              arcu, non consequat magna fermentum ac.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam
+              pellentesque tristique arcu, non consequat magna fermentum ac.
             </motion.p>
 
             <motion.div
@@ -93,9 +92,7 @@ export default function Hero() {
             {/* Loading indicator */}
             {!isSplineLoaded && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="animate-pulse text-primary text-xl">
-                  Loading 3D Model...
-                </div>
+                <div className="animate-pulse text-primary text-xl">Loading 3D Model...</div>
               </div>
             )}
 
@@ -138,5 +135,5 @@ export default function Hero() {
         </motion.div>
       </motion.div>
     </section>
-  );
+  )
 }

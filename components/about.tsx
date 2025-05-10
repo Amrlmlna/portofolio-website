@@ -1,25 +1,21 @@
-"use client";
+"use client"
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
+import { useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
+import Image from "next/image"
 
 export default function About() {
-  const containerRef = useRef(null);
+  const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
-  });
+  })
 
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.8, 1],
-    [0.8, 1, 1, 0.8]
-  );
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 5]);
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -100])
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 100])
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8])
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 5])
 
   const techStack = [
     { name: "React", color: "#61DAFB" },
@@ -34,14 +30,10 @@ export default function About() {
     { name: "Docker", color: "#2496ED" },
     { name: "AWS", color: "#FF9900" },
     { name: "Git", color: "#F05032" },
-  ];
+  ]
 
   return (
-    <section
-      id="about"
-      ref={containerRef}
-      className="relative min-h-screen py-20 overflow-hidden"
-    >
+    <section id="about" ref={containerRef} className="relative min-h-screen py-20 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
         <motion.div
@@ -55,10 +47,7 @@ export default function About() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <motion.div
-          className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20"
-          style={{ opacity, scale }}
-        >
+        <motion.div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20" style={{ opacity, scale }}>
           {/* Left Side - Image */}
           <motion.div
             className="lg:w-1/2 relative"
@@ -78,7 +67,7 @@ export default function About() {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="/image.png?height=400&width=400"
+                  src="/placeholder.svg?height=400&width=400"
                   alt="Developer Portrait"
                   width={400}
                   height={400}
@@ -143,23 +132,18 @@ export default function About() {
               viewport={{ once: true }}
             >
               <p>
-                I'm a passionate fullstack developer with expertise in building
-                modern, responsive, and user-friendly web applications. With a
-                strong foundation in both frontend and backend technologies, I
-                create seamless digital experiences that solve real-world
-                problems.
+                I'm a passionate fullstack developer with expertise in building modern, responsive, and user-friendly
+                web applications. With a strong foundation in both frontend and backend technologies, I create seamless
+                digital experiences that solve real-world problems.
               </p>
               <p>
-                My journey in web development started 5 years ago, and since
-                then, I've worked on a variety of projects ranging from
-                e-commerce platforms to real-time applications. I'm constantly
-                learning and adapting to new technologies to stay at the
-                forefront of web development.
+                My journey in web development started 5 years ago, and since then, I've worked on a variety of projects
+                ranging from e-commerce platforms to real-time applications. I'm constantly learning and adapting to new
+                technologies to stay at the forefront of web development.
               </p>
               <p>
-                When I'm not coding, you can find me exploring new technologies,
-                contributing to open-source projects, or sharing my knowledge
-                through blog posts and mentoring.
+                When I'm not coding, you can find me exploring new technologies, contributing to open-source projects,
+                or sharing my knowledge through blog posts and mentoring.
               </p>
             </motion.div>
 
@@ -195,5 +179,5 @@ export default function About() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }
