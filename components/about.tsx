@@ -57,22 +57,84 @@ export default function About() {
             viewport={{ once: true }}
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
+              {/* Creative background elements */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-primary/30 to-primary/10 rounded-2xl"
-                style={{ rotate }}
+                className="absolute -inset-4 bg-gradient-to-br from-primary/40 to-primary/5 rounded-full blur-md"
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{
+                  rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                  scale: { duration: 8, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" },
+                }}
               />
+
+              {/* Decorative elements */}
+              <motion.div className="absolute -inset-2 border-2 border-primary/30 rounded-full" style={{ rotate }} />
               <motion.div
-                className="absolute inset-2 bg-background rounded-xl overflow-hidden"
+                className="absolute -inset-6 border border-primary/20 rounded-full"
+                animate={{ rotate: [0, -360] }}
+                transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+              />
+
+              {/* Hexagonal clip path container */}
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <Image
-                  src="/placeholder.svg?height=400&width=400"
-                  alt="Developer Portrait"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
+                <div className="relative w-full h-full">
+                  {/* Hexagonal mask with image */}
+                  <div
+                    className="absolute inset-0 overflow-hidden"
+                    style={{
+                      clipPath: "polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%)",
+                      background: "linear-gradient(45deg, rgba(124, 58, 237, 0.5), rgba(124, 58, 237, 0.2))",
+                      padding: "5px",
+                    }}
+                  >
+                    <div
+                      className="w-full h-full overflow-hidden"
+                      style={{
+                        clipPath: "polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%)",
+                        background: "#0d1117",
+                      }}
+                    >
+                      <Image
+                        src="/images/profile.png"
+                        alt="Developer Portrait"
+                        width={400}
+                        height={400}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Decorative corner accents */}
+                  {[45, 135, 225, 315].map((angle) => (
+                    <motion.div
+                      key={angle}
+                      className="absolute w-6 h-6 bg-primary"
+                      style={{
+                        top: `calc(50% + ${Math.sin((angle * Math.PI) / 180) * 45}%)`,
+                        left: `calc(50% + ${Math.cos((angle * Math.PI) / 180) * 45}%)`,
+                        transform: "translate(-50%, -50%) rotate(45deg)",
+                        opacity: 0.7,
+                      }}
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.7, 0.9, 0.7],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Number.POSITIVE_INFINITY,
+                        repeatType: "reverse",
+                        delay: angle / 100,
+                      }}
+                    />
+                  ))}
+                </div>
               </motion.div>
             </div>
 
