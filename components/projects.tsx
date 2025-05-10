@@ -1,30 +1,34 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
-import Image from "next/image"
-import { Github, ExternalLink, Code } from "lucide-react"
-import Tilt from "react-parallax-tilt"
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { Github, ExternalLink, Code } from "lucide-react";
+import Tilt from "react-parallax-tilt";
 
 export default function Projects() {
-  const containerRef = useRef(null)
+  const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
-  })
+  });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8])
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.8, 1],
+    [0.8, 1, 1, 0.8]
+  );
 
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Tools Pedia",
       description:
-        "A full-featured e-commerce platform with product management, cart functionality, and secure payment processing. Built with a modern tech stack for optimal performance.",
-      image: "/placeholder.svg?height=600&width=800",
+        "Tools Pedia is a comprehensive web directory that brings together all the useful tools available on the internet in one convenient place. Whether you're looking for design tools, productivity boosters, development utilities, or data analysis platforms, Tools Pedia makes it easy to discover and access exactly what you need. No more endless searching—just visit Tools Pedia and find the right tools in seconds.",
+      image: "/toolspedia.png?height=600&width=800",
       tags: ["Next.js", "Node.js", "MongoDB", "Stripe", "Redux"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/Amrlmlna/toolsPedia",
+      demo: "https://tools-hub-official.vercel.app/",
       featured: true,
     },
     {
@@ -57,10 +61,14 @@ export default function Projects() {
       demo: "#",
       featured: false,
     },
-  ]
+  ];
 
   return (
-    <section id="projects" ref={containerRef} className="relative min-h-screen py-20 overflow-hidden">
+    <section
+      id="projects"
+      ref={containerRef}
+      className="relative min-h-screen py-20 overflow-hidden"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background via-background/95 to-background" />
@@ -93,7 +101,8 @@ export default function Projects() {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Here are some of my recent projects that showcase my skills and expertise in fullstack development.
+            Here are some of my recent projects that showcase my skills and
+            expertise in fullstack development.
           </motion.p>
         </motion.div>
 
@@ -167,12 +176,17 @@ export default function Projects() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    {project.title}
+                  </h3>
                   <p className="text-gray-400">{project.description}</p>
 
                   <div className="flex flex-wrap gap-2 pt-2">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 bg-gray-800/80 text-primary text-sm rounded-full">
+                      <span
+                        key={tag}
+                        className="px-3 py-1 bg-gray-800/80 text-primary text-sm rounded-full"
+                      >
                         {tag}
                       </span>
                     ))}
@@ -227,5 +241,5 @@ export default function Projects() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

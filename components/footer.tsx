@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { Github, Linkedin, Mail, ArrowUp } from "lucide-react"
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    })
-  }
+    });
+  };
 
   return (
     <footer className="relative py-12 border-t border-gray-800">
@@ -30,7 +30,9 @@ export default function Footer() {
               Portfolio
               <span className="text-primary">/&gt;</span>
             </Link>
-            <p className="text-gray-400 mt-2">Building the web, one line at a time.</p>
+            <p className="text-gray-400 mt-2">
+              Building the web, one line at a time.
+            </p>
           </motion.div>
 
           <motion.div
@@ -41,7 +43,7 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <motion.a
-              href="https://github.com"
+              href="https://github.com/Amrlmlna"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-primary transition-colors"
@@ -61,7 +63,7 @@ export default function Footer() {
               <Linkedin className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="mailto:hello@example.com"
+              href="mailto:amirulmumba@gmail.com"
               className="text-gray-400 hover:text-primary transition-colors"
               whileHover={{ y: -5 }}
               aria-label="Email"
@@ -79,7 +81,7 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            © {currentYear} Your Name. All rights reserved.
+            © {currentYear} Amirul Maulana. All rights reserved.
           </motion.p>
 
           <motion.button
@@ -98,5 +100,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
